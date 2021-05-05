@@ -30,11 +30,34 @@ header-includes:
 - \usepackage{fancyhdr}
 - \pagestyle{fancy}
 ---
+```{r ,include=FALSE}
+knitr::opts_chunk$set(echo = FALSE, message = FALSE, warning = FALSE)
+library(tidyverse)
+library(dplyr)
+```
 
 \clearpage
 
 # Section 1
 
+```{r datavis}
+Data_vis <- read_csv("Data_Tables_Criminal_Incidents_Visualisation_Year_Ending_December_2019.csv")
+Data_vis
+```
+
+Table \@ref(tab:datavis) is blah
+
+```{r datatbl, fig.cap="random fig"}
+tbl <- Data_vis %>%
+  ggplot(aes(x=Year,y=`Incidents Recorded`)) +
+  geom_point()
+tbl
+```
+
+fig \@ref(fig:datatbl) is a fig
+ 
+^[@makridakis2000m3]
+Cleveland^[@cleveland1990stl] data is pretty messy. Idk
 
 \clearpage
 
@@ -53,9 +76,5 @@ header-includes:
 
 \clearpage
 
-# Citation examples
+# References
 
-[More styles for natbib here](https://www.overleaf.com/learn/latex/Natbib_bibliography_styles)
-
-
- @BC64 and this is another article about COVID @bai2020presumed and I can also cite R packages as follows @ggplot2
